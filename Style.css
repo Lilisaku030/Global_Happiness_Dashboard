@@ -1,0 +1,139 @@
+/* Define Color Variables for Light Mode (Default) */
+:root {
+    --bg-color: #f4f4f9;
+    --sidebar-bg: #2c3e50;
+    --sidebar-text: #bdc3c7;
+    --sidebar-hover: #34495e;
+    --sidebar-active-text: #ffffff;
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --heading-color: #2c3e50;
+    --btn-bg: #34495e;
+    --btn-hover: #4e6d8d;
+}
+
+/* Define Color Variables for Dark Mode */
+body.dark-mode {
+    --bg-color: #121212;
+    --sidebar-bg: #1e1e1e;
+    --sidebar-text: #a0a0a0;
+    --sidebar-hover: #2c2c2c;
+    --sidebar-active-text: #ffffff;
+    --card-bg: #1e1e1e;
+    --text-color: #e0e0e0;
+    --heading-color: #ffffff;
+    --btn-bg: #2d2d2d;
+    --btn-hover: #3d3d3d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    height: 100vh;
+    overflow: hidden;
+    position: relative; /* Allows absolute positioning for the sidebar */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Sidebar Styling ( ahora is an absolute overlay drawer ) */
+.sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    transition: width 0.3s ease, padding 0.3s ease, background-color 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    z-index: 1000; /* Ensures it sits cleanly on top of the dashboard */
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2); /* Adds depth so it looks like a floating drawer */
+}
+
+.sidebar h2 {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: var(--sidebar-active-text);
+    transition: opacity 0.2s ease, color 0.3s ease;
+}
+
+.sidebar a {
+    color: var(--sidebar-text);
+    text-decoration: none;
+    padding: 12px 15px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    transition: background 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar a:hover, .sidebar a.active {
+    background-color: var(--sidebar-hover);
+    color: var(--sidebar-active-text);
+}
+
+/* Controls Container inside Sidebar */
+.sidebar-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* Toggle Button Styling */
+.toggle-btn {
+    background-color: var(--btn-bg);
+    color: var(--sidebar-active-text);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background 0.2s;
+    flex: 1;
+    text-align: center;
+}
+
+.toggle-btn:hover {
+    background-color: var(--btn-hover);
+}
+
+/* Collapsed State Class */
+body.sidebar-collapsed .sidebar {
+    width: 70px;
+    padding: 20px 10px;
+}
+
+body.sidebar-collapsed .sidebar h2,
+body.sidebar-collapsed .sidebar span {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Main Content Area (Takes full width now) */
+.main-content {
+    width: 100%;
+    height: 100vh;
+    padding: 30px;
+    padding-left: 90px; /* Keeps content clear when the sidebar is collapsed */
+    overflow-y: auto;
+}
+
+.tableau-container {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    max-width: 1366px;
+    margin: 0 auto;
+    transition: background-color 0.3s ease;
+}
