@@ -137,3 +137,44 @@ body.sidebar-collapsed .sidebar span {
     margin: 0 auto;
     transition: background-color 0.3s ease;
 }
+/* --- MOBILE-FRIENDLY ADJUSTMENTS --- */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column; /* Stacks the sidebar on top of the content */
+        position: static;
+        overflow-y: auto; /* Allows the whole page to scroll */
+    }
+
+    /* Converts sidebar to a top navigation bar */
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 15px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    /* Mobile Collapsed State: Hides links and title, shows only buttons */
+    body.sidebar-collapsed .sidebar {
+        height: 70px;
+        padding: 15px;
+    }
+
+    body.sidebar-collapsed .sidebar h2,
+    body.sidebar-collapsed .sidebar a {
+        display: none; 
+    }
+
+    /* Adjusts the main content to take full width */
+    .main-content {
+        padding: 10px;
+        padding-left: 10px; /* Removes the 90px desktop margin */
+        width: 100%;
+        height: auto;
+    }
+
+    .tableau-container {
+        padding: 10px;
+    }
+}
