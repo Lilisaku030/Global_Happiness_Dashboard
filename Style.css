@@ -1,4 +1,4 @@
-/* Define Color Variables for Light Mode (Default) */
+/* Define Color Variables */
 :root {
     --bg-color: #f4f4f9;
     --sidebar-bg: #2c3e50;
@@ -12,19 +12,6 @@
     --btn-hover: #4e6d8d;
 }
 
-/* Define Color Variables for Dark Mode */
-body.dark-mode {
-    --bg-color: #121212;
-    --sidebar-bg: #1e1e1e;
-    --sidebar-text: #a0a0a0;
-    --sidebar-hover: #2c2c2c;
-    --sidebar-active-text: #ffffff;
-    --card-bg: #1e1e1e;
-    --text-color: #e0e0e0;
-    --heading-color: #ffffff;
-    --btn-bg: #2d2d2d;
-    --btn-hover: #3d3d3d;
-}
 
 * { box-sizing: border-box; }
 

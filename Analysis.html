@@ -32,28 +32,12 @@
         const themeToggle = document.getElementById('themeToggle');
         const body = document.body;
 
-        // Check for saved user theme preference
-        if (localStorage.getItem('theme') === 'dark') {
-            body.classList.add('dark-mode');
-            themeToggle.textContent = '☀️';
-        }
 
         // Sidebar collapse logic
         sidebarToggle.addEventListener('click', () => {
             body.classList.toggle('sidebar-collapsed');
         });
 
-        // Dark/Light mode switch logic
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            if (body.classList.contains('dark-mode')) {
-                localStorage.setItem('theme', 'dark');
-                themeToggle.textContent = '☀️';
-            } else {
-                localStorage.setItem('theme', 'light');
-                themeToggle.textContent = '🌙';
-            }
-        });
 
         // Auto-collapse sidebar on mobile devices on initial load
         if (window.innerWidth <= 768) {
